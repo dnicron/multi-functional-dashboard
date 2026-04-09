@@ -1,0 +1,17 @@
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.canvas__wrapper {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+}
+
+.canvas__wrapper canvas {
+  width: 100%;
+}

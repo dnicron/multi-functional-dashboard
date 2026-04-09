@@ -1,0 +1,22 @@
+:root {
+  /* Surface colors */
+  --bg-main: #0b0e14;
+  --bg-card: #161b22;
+  --bg-card-hover: #1c2128;
+
+  /* Accent */
+  --accent-blue: #58a6ff;
+  --accent-purple: #bc8cff;
+  --accent-cyan: #3fb950;
+  --accent-red: #f85149;
+
+  /* Text */
+  --text-main: #ffffff;
+  --text-muted: #8b949e;
+  --text-dark: #484f58;
+
+  /* Other */
+  --border-color: #30363d;
+  --glow-blue: 0 0 15px rgba(88, 166, 255, 0.3);
+  --grad-rpg: linear-gradient(90deg, #58a6ff 0%, #bc8cff 100%);
+}

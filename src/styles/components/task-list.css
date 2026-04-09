@@ -1,0 +1,105 @@
+.tasks-list {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tasks-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid var(--border-color);
+  padding: 10px 10px;
+  border-radius: 12px;
+  font-size: 16px;
+  /* Animation */
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease,
+    margin 0.6s ease;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.task-item--completed {
+  border: 2px solid transparent;
+  background-image:
+    linear-gradient(var(--bg-card), var(--bg-card)), var(--grad-rpg);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  color: var(--text-muted);
+}
+
+.task-text,
+.task-xp {
+  color: inherit;
+}
+
+.task-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.task-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.task-checkbox {
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+}
+
+.task-checkbox--completed {
+  background: var(--grad-rpg);
+}
+
+.tasks-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+  padding: 10px 16px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+  transition: 0.4s;
+}
+
+.tasks-btn span {
+  font-size: 20px;
+  line-height: 0;
+  margin-right: 5px;
+}
+
+.tasks-btn:hover {
+  transform: scale(110%);
+  border: 1px solid transparent;
+  background-image:
+    linear-gradient(var(--bg-card), var(--bg-card)), var(--grad-rpg);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  color: var(--text-main);
+}
+
+.tasks-card__wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  gap: 10px;
+}
+
+.fade-out {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.1s ease-out; /* Плавность */
+  pointer-events: none; /* Нельзя кликнуть во время исчезновения */
+}

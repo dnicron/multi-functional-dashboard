@@ -1,0 +1,49 @@
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-main);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+.main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row: auto;
+  padding: 30px;
+  gap: 20px;
+  min-height: 0;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 0;
+}
+
+.growth-card {
+  flex: 1;
+  min-height: 0;
+}
+
+.tasks-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.trends-card {
+  flex: 1;
+  min-height: 0;
+}
+
+.expenses-card {
+  flex: 2;
+  min-height: 0;
+}

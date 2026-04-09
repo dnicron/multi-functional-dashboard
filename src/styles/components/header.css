@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px 0;
+  flex: 0 0 auto;
+}
+
+.header__title {
+  color: transparent;
+  background-image: var(--grad-rpg);
+  background-clip: text;
+  font-size: 28px;
+}
+
+.header__left {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.header__right {
+  display: flex;
+  gap: 30px;
+}

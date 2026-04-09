@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HubOS</title>
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="./charts.js"></script>
+    <script defer src="./index.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__left">
+        <h1 class="header__title">Dashboard</h1>
+        <p class="header__time"></p>
+      </div>
+      <div class="header__right">
+        <button type="button">
+          <img
+            class="user-avatar-btn"
+            src="./assets/settings-icon.svg"
+            alt=""
+          />
+        </button>
+        <div class="header-avatar__wrapper">
+          <button type="button" class="user-avatar-btn" id="lvl-btn">
+            <img
+              src="./assets/test_img.jpg"
+              alt="Аватар"
+              class="user-avatar-img"
+            />
+          </button>
+        </div>
+      </div>
+    </header>
+    <main class="main">
+      <!-- left column start -->
+      <section class="column column-left">
+        <h2 class="column__header">Life-dev & skill tree</h2>
+        <div class="card lvl-card">
+          <div class="card__header lvl-card__header">
+            <h3 class="card__title">Personal RPG</h3>
+            <button type="button" class="user-avatar-btn" id="lvl-btn">
+              <img
+                src="./assets/test_img.jpg"
+                alt="Аватар"
+                class="user-avatar-img"
+              />
+            </button>
+          </div>
+          <div class="lvl-card__progress-wrapper">
+            <!-- Progress bar -->
+            <div class="progress-bar"><div class="bar"></div></div>
+            <div class="lvl-card__progress-info">
+              <span>Level: 0</span>
+              <span>0/100 XP</span>
+            </div>
+          </div>
+        </div>
+        <div class="card growth-card">
+          <div class="card__header">
+            <h3 class="card__title">Skill growth</h3>
+            <button class="card__btn"><span></span></button>
+          </div>
+          <div class="canvas__wrapper">
+            <canvas id="grow-canvas"></canvas>
+          </div>
+        </div>
+      </section>
+      <!-- center column start -->
+      <section class="column column-center">
+        <h2 class="column__header">Smart planner & tasks</h2>
+        <div class="card tasks-card">
+          <div class="card__header">
+            <h3 class="card__title">Today's missions</h3>
+            <button class="card__btn"><span></span></button>
+          </div>
+          <ul class="tasks-list">
+            <!-- <li class="tasks-item">
+              <div class="task-left">
+                <span class="task-checkbox"> </span>
+                <span class="task-text">222</span>
+              </div>
+              <div class="task-right">
+                <span class="task-xp">2</span>
+                <button id="delete-task" type="button">
+                  <img src="./assets/trash.svg" alt="Удалить" />
+                </button>
+              </div>
+            </li> -->
+          </ul>
+          <div class="tasks-card__wrapper">
+            <button id="add-task" class="tasks-btn" type="button">
+              <span>+</span>Add more
+            </button>
+            <button id="completed-tasks" class="tasks-btn" type="button">
+              Completed
+            </button>
+          </div>
+        </div>
+        <!-- ###################### HIDDEN ELEMENT ######################### -->
+        <form
+          id="tasks-form"
+          action="#"
+          class="element-hidden modal tasks-modal"
+        >
+          <h2 class="modal__title tasks-form__title">Add new mission</h2>
+          <div class="tasks-form__group modal__group">
+            <label for="task-text" class="group__title">Mission name</label>
+            <input type="text" id="task-text" />
+          </div>
+          <div class="tasks-form__group modal__group-row rewards-date">
+            <div class="group-left">
+              <label for="task-reward" class="group__title">Reward</label>
+              <input type="number" id="task-reward" min="0" max="30" step="5" />
+            </div>
+            <div class="group-right">
+              <label for="task-date" class="group__title">Date</label>
+              <input type="date" id="task-date" />
+            </div>
+          </div>
+          <div class="tasks-form__group modal__group">
+            <h3 class="group__title">Mission difficulty</h3>
+            <div class="diff-buttons">
+              <button
+                class="diff-btn"
+                type="button"
+                data-diff="low"
+                value="low"
+              >
+                Low
+              </button>
+              <button
+                class="diff-btn"
+                type="button"
+                data-diff="medium"
+                value="medium"
+              >
+                Medium
+              </button>
+              <button
+                class="diff-btn"
+                type="button"
+                data-diff="high"
+                value="high"
+              >
+                High
+              </button>
+            </div>
+          </div>
+          <div class="tasks-form__group modal__group-row">
+            <button id="add-task-exit" type="button" class="modal__btn">
+              Cancel
+            </button>
+            <button id="add-task-submit" type="submit" class="modal__btn">
+              Accept quest
+            </button>
+          </div>
+        </form>
+        <div class="completed-popup element-hidden modal">
+          <h3 class="group__title">Completed tasks</h3>
+          <ul class="completed-list"></ul>
+        </div>
+        <div class="card weakly-card">
+          <div class="card__header">
+            <h3 class="card__title">Weekly goals</h3>
+            <button class="card__btn"><span></span></button>
+          </div>
+          <div class="weakly-card__wrapper">
+            <p class="weakly-card__sub">Progress<span>23</span></p>
+            <div class="progress-bar weakly-bar">
+              <div class="bar">
+                <div class="progress-marker"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- right column start -->
+      <section class="column column-right">
+        <h2 class="column__header">Finance hub & shared wallet</h2>
+        <div class="card balance-card">
+          <div class="card__header">
+            <h3 class="card__title">Shared balance</h3>
+            <button class="card__btn"><span></span></button>
+          </div>
+          <div class="balance-card__inner">
+            <p class="balance-card__wallet"><span id="balance">0</span>₽</p>
+          </div>
+          <div class="balance-card__users">
+            <div class="balance-card__user">
+              <button type="button" class="user-avatar-btn">
+                <img
+                  src="./assets/test_img.jpg"
+                  alt="Аватар"
+                  class="user-avatar-img"
+                />
+              </button>
+              <p class="balance-card__info">User1: <span>0₽</span></p>
+            </div>
+            <div class="balance-card__user">
+              <button type="button" class="user-avatar-btn">
+                <img
+                  src="./assets/test_img.jpg"
+                  alt="Аватар"
+                  class="user-avatar-img"
+                />
+              </button>
+              <p class="balance-card__info">User2: <span>0₽</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="card trends-card">
+          <div class="card__header">
+            <h3 class="card__title">Spending trends</h3>
+            <button class="card__btn"><span></span></button>
+          </div>
+          <div class="canvas__wrapper">
+            <canvas id="spending-canvas"></canvas>
+          </div>
+        </div>
+        <div class="card expenses-card">
+          <div class="card__header">
+            <h3 class="card__title">Recent expenses</h3>
+            <button class="card__btn"><span></span></button>
+          </div>
+          <table class="expenses-card__table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Comment</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Тест</td>
+                <td>Тест</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Тест</td>
+                <td>Тест</td>
+                <td>0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <div class="overlay element-hidden"></div>
+  </body>
+</html>

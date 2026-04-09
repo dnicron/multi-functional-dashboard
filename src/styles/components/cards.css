@@ -1,0 +1,56 @@
+.column__header {
+  font-size: 26px;
+  letter-spacing: 2px;
+}
+
+.card {
+  padding: 20px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+}
+
+.card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+.card__btn span {
+  position: relative;
+  background-color: var(--text-dark);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+}
+
+.card__btn span::before,
+.card__btn span::after {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: inherit;
+  position: absolute;
+  top: 0;
+}
+
+.card__btn span::before {
+  left: -8px;
+}
+
+.card__btn span::after {
+  right: -8px;
+}

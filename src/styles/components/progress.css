@@ -1,0 +1,39 @@
+.progress-bar,
+.bar {
+  height: 14px;
+  border-radius: 5px;
+}
+
+.progress-bar {
+  background-color: var(--border-color);
+  margin-bottom: 10px;
+}
+
+.bar {
+  width: 50%;
+  background: var(--grad-rpg);
+}
+
+.lvl-card__progress-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.weakly-bar {
+  background-color: var(--bg-main);
+}
+
+.weakly-bar .bar {
+  position: relative;
+  width: 10%;
+}
+
+.progress-marker {
+  width: 3px;
+  height: 20px;
+  background: var(--grad-rpg);
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
